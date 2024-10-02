@@ -56,7 +56,6 @@ fn main() {
     let len: usize = calculate_len(&string1);
     println!("The length of {} is {}", string1, len);
 
-
     let mut st1: String = String::from("Hello");
     let w1 = &mut st1;
     w1.push_str(" World");
@@ -68,11 +67,7 @@ fn main() {
     println!("w2 = {}", w2);
     //  println!("w1 = {}", w1);
     // this causes error as it cant be used now
-    
 }
-
-
-
 
 fn print_val(item: u8) {
     println!("Hello world you entered {}", item);

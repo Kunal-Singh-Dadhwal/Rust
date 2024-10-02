@@ -140,3 +140,15 @@ fn append_str(s1:&mut String){
 ```
 
 this will let us borrow the memory and then also modify it
+
+
+## Refrence vs Pointer
+
+In rust when we create a refrence to a pointer like let x_ref = &x the refrence x_ref is essentialy a wrapper around the memory address unlike a raw pointer which directly holds the memory address, a refrence holds the metadata about the refrence. 
+
+Refrence in rust behave similar to pointers in other languages with additional metadata and safety checks . this allows direct mem access with memory safety.
+
+
+## Data type
+
+Char is always 4 bytes in size can represent emoji, ASCII and eveything in utf-8
