@@ -91,3 +91,18 @@ let s2: String = s1;
 // when we do s2 = s1 there is transfer of ownership
 // and the new owner is s2
 ```
+
+
+Another example of ownership transfer
+
+```Rust
+fn main(){
+  let x: String = String::from("Hello");
+  process_str(x);   // As this function is called the ownership transfers to item in the parameter and the next print statement giver error
+  println!("The value of x in main is {}", x);
+}
+
+fn process_str(item: String){
+  println!("The value in the function process_str is {}", item); // hello - new owner is item
+}
+```

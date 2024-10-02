@@ -1,3 +1,5 @@
+use std::string;
+
 // Global const should be capital
 const GLOBAL_CONST: u8 = 100;
 
@@ -38,10 +40,21 @@ fn main() {
     let res: u8 = add(num1, num2);
     println!("The sum of {} and {} is {}", num1, num2, res);
 
-
     let str1 = String::from("This is a ownership string");
     let str2 = str1; // now the owner is str2
-    println!("{}\n",str2);
+    println!("{}\n", str2);
+
+    let string1 = String::from("Hello");
+    /*
+    let len: usize = calculate_len(string1);
+
+    the above line gives the ownership to the function so the print statement gives error so we use clone
+    */
+
+    // clone method is deep copy and it is an expensive method
+    let len: usize = calculate_len(string1.clone());
+
+    println!("The length of {} is {}", string1, len);
 }
 
 fn print_val(item: u8) {
@@ -51,4 +64,8 @@ fn print_val(item: u8) {
 fn add(num1: u8, num2: u8) -> u8 {
     println!("This is global constant:- {}", GLOBAL_CONST);
     return num1 + num2;
+}
+
+fn calculate_len(s: String) -> usize {
+    return s.len();
 }
