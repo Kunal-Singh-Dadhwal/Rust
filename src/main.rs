@@ -27,9 +27,19 @@ fn main() {
         "The employee name is {} and the employee age is {}",
         emp_name, emp_age
     );
-    print_val();
+    print_val(55);
+
+    let num1: u8 = 10;
+    let num2: u8 = 20;
+
+    let res: u8 = add(num1, num2);
+    println!("The sum of {} and {} is {}", num1, num2, res);
 }
 
-fn print_val() {
-    println!("Hello world");
+fn print_val(item: u8) {
+    println!("Hello world you entered {}", item);
+}
+
+fn add(num1: u8, num2: u8) -> u8 {
+    return num1 + num2;
 }
