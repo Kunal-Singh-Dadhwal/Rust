@@ -1,3 +1,6 @@
+// Global const should be capital
+const GLOBAL_CONST: u8 = 100;
+
 fn main() {
     let mut num: u8 = 5;
     //    println!("The number stored in num is {}", num);
@@ -34,6 +37,11 @@ fn main() {
 
     let res: u8 = add(num1, num2);
     println!("The sum of {} and {} is {}", num1, num2, res);
+
+
+    let str1 = String::from("This is a ownership string");
+    let str2 = str1; // now the owner is str2
+    println!("{}\n",str2);
 }
 
 fn print_val(item: u8) {
@@ -41,5 +49,6 @@ fn print_val(item: u8) {
 }
 
 fn add(num1: u8, num2: u8) -> u8 {
+    println!("This is global constant:- {}", GLOBAL_CONST);
     return num1 + num2;
 }
