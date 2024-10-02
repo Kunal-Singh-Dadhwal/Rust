@@ -106,3 +106,37 @@ fn process_str(item: String){
   println!("The value in the function process_str is {}", item); // hello - new owner is item
 }
 ```
+
+
+We can pass the refrence of a variable which is called borrowing
+
+```Rust 
+fn main(){
+  let str1: String = String::from("Hello");
+  let len: usize = calculate_len(&str1);
+
+  // The & is the refrence of str1 which is borrowing it for calculate_len function call
+  println!("The size of {} is {}", str1, len)
+}
+
+fn calculate_len(item: String)-> usize{
+  return item.len();
+}
+```
+
+
+when we pass the refrence & we can only read no write to the variable as long as we pass mut variable
+
+```Rust
+
+let mut s1: String = String::from("Hello ");
+
+append_str(&mut s1);
+
+fn append_str(s1:&mut String){
+  s1.push_str("World");
+}
+
+```
+
+this will let us borrow the memory and then also modify it

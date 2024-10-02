@@ -52,10 +52,27 @@ fn main() {
     */
 
     // clone method is deep copy and it is an expensive method
-    let len: usize = calculate_len(string1.clone());
 
+    let len: usize = calculate_len(&string1);
     println!("The length of {} is {}", string1, len);
+
+
+    let mut st1: String = String::from("Hello");
+    let w1 = &mut st1;
+    w1.push_str(" World");
+
+    println!("w1 = {}", w1);
+
+    let w2 = &mut st1;
+    w2.push_str(" from rust");
+    println!("w2 = {}", w2);
+    //  println!("w1 = {}", w1);
+    // this causes error as it cant be used now
+    
 }
+
+
+
 
 fn print_val(item: u8) {
     println!("Hello world you entered {}", item);
@@ -66,6 +83,6 @@ fn add(num1: u8, num2: u8) -> u8 {
     return num1 + num2;
 }
 
-fn calculate_len(s: String) -> usize {
+fn calculate_len(s: &String) -> usize {
     return s.len();
 }
