@@ -1,5 +1,22 @@
 # RUST 
 
+## Running
+
+1. First clone the Repo
+
+```bash
+git clone https://github.com/Kunal-Singh-Dadhwal/Rust
+```
+
+2. Then change into that directory and run cargo 
+
+```bash
+cd Rust/
+
+cargo run
+```
+
+## Introduction
 This repo is for learning rust 
 
 Integer datatypes:- 
