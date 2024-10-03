@@ -161,4 +161,4 @@ It is a dynamic array with different size and elements can be pushed and poped o
 
 ## Tic Tac Toe 
 
-The [main]("./src/main.rs") is a tic tac toe game
+The [main](/src/main.rs) is a tic tac toe game
