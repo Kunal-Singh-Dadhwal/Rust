@@ -1,4 +1,4 @@
-use std::string;
+use std::{any::type_name_of_val, string};
 
 // Global const should be capital
 const GLOBAL_CONST: u8 = 100;

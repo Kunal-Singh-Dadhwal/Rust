@@ -152,3 +152,8 @@ Refrence in rust behave similar to pointers in other languages with additional m
 ## Data type
 
 Char is always 4 bytes in size can represent emoji, ASCII and eveything in utf-8
+
+
+## Vectors 
+
+It is a dynamic array with different size and elements can be pushed and poped on it so Its a heap based data type so the rules of ownership apply on it 

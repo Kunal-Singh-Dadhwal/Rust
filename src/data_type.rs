@@ -1,3 +1,4 @@
+use std::any::type_name;
 fn main() {
     let floating: f64 = 14.2323;
     // default type is f64 in the cpu
@@ -19,13 +20,26 @@ fn main() {
 
     println!("The length of array is {}", arr1.len());
 
-    let arr2: [&str; 3] = ["Hello", "World", "lets go Coding"];
-    write_arr(arr2);
+    let mut arr2: [&str; 3] = ["Hello", "World", "lets go Coding"];
+    write_arr(&mut arr2);
     println!("arr2 = {:?}", arr2);
+
+    //Type inference compiler automatically infers the data type
+    let x = 5;
+    let y = 5.5;
+    let z = "Hello, World";
+
+    type_of(&x);
+    type_of(&y);
+    type_of(&z);
 }
 
-fn write_arr(mut arr: [&str; 3]) {
+fn write_arr(arr: &mut [&str; 3]) {
     // very expensive as it can be very big
     arr[1] = "fellow";
     println!("arr = {:?}", arr);
+}
+
+fn type_of<T>(_: &T) {
+    println!("Type: {}", type_name::<T>());
 }
