@@ -1,5 +1,5 @@
 use rand::prelude::*;
-use std::io::*;
+use std::io::{self, Write};
 
 fn main() {
     let guess_list = [
@@ -12,19 +12,40 @@ fn main() {
         "watermelon",
         "muskmelon",
     ];
+
     let mut rng = thread_rng();
+    let index = rng.gen_range(0..guess_list.len());
+    let rand_fruit = guess_list[index];
+
+    print!("Enter a guess for fruit:- ");
+
+    io::stdout().flush().unwrap();
 
     loop {
-        let index = rng.gen_range(0, guess_list.len());
-        let random_fruit = guess_list[index];
         let mut input = String::new();
-        print!("Please enter your guess fruit:- ");
-        io::stdin::read_line(&mut input).expect("Input failed");
+        match io::stdin().read_line(&mut input) {
+            Ok(_) => {
+                let fruit_selected = input.trim().to_lowercase();
+                println!("Fruit selected : {}", fruit_selected);
 
-        if input == random_fruit {
-            println!("You won the game");
-        } else {
-            println!("You lost the game");
+                if !guess_list.contains(&fruit_selected.as_str()) {
+                    println!("Fruit entered is not found");
+                }
+
+                if guess_checker(&fruit_selected, rand_fruit) {
+                    println!("You are winner");
+                    break;
+                } else {
+                    println!("Take another guess");
+                }
+            }
+            Err(error) => {
+                println!("Error: {}", error);
+            }
         }
     }
+}
+
+fn guess_checker(str1: &String, str2: &str) -> bool {
+    return str1 == str2;
 }
