@@ -1,5 +1,22 @@
 # RUST 
 
+## Rust Compiler
+
+It can do static analysis it can find the code errors but can't do runtime analysis. Eg
+
+```Rust
+fn main(){
+  let mut x: i8 = 10;
+  for i in 1..127 {
+    x += i;
+  }
+  println!("{}", x);
+}
+```
+
+The above rust code <b>Compiles</b> but as we run the binary it panicks and does not execute
+
+
 ## Running
 
 1. First clone the Repo
