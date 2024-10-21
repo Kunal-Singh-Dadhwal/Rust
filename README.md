@@ -95,6 +95,87 @@ int main(){
     
 }
 ```
+## Rust Format Specifiers
+
+In Rust, format specifiers are used with macros like `println!`, `format!`, and `write!` to control the output of various data types. Here are the most common format specifiers:
+
+### 1. General Format Specifiers
+
+| Specifier | Meaning                                                 |
+|-----------|---------------------------------------------------------|
+| `{}`      | Display (uses `std::fmt::Display` trait). For user-facing output. |
+| `{:?}`    | Debug (uses `std::fmt::Debug` trait). For debug formatting. |
+| `{:#?}`   | Pretty Debug. Outputs `Debug` with pretty printing, for multi-line and indented structures. |
+| `{:x}`    | Lowercase hexadecimal. For formatting numbers in base 16 (hex). |
+| `{:X}`    | Uppercase hexadecimal. Same as above, but uppercase letters for hex digits. |
+| `{:o}`    | Octal. Formats numbers in base 8. |
+| `{:b}`    | Binary. Formats numbers in base 2. |
+| `{:p}`    | Pointer. Formats a pointer address. |
+| `{:e}`    | Lowercase scientific notation (e.g., 1.234e+3). |
+| `{:E}`    | Uppercase scientific notation (e.g., 1.234E+3). |
+
+### 2. Numeric Format Specifiers
+
+| Specifier   | Meaning                                                   |
+|-------------|-----------------------------------------------------------|
+| `{:}`       | Default. Uses `Display` or `Debug`, depending on the type. |
+| `{:0width}` | Pad with zeros to ensure at least `width` characters. |
+| `{:width}`  | Sets the minimum width for the output. Pads with spaces by default. |
+| `{:.*}`     | Precision. Specify precision as an argument in `println!`. Example: `println!("{:.2}", 3.14159)` prints `3.14`. |
+| `{:+}`      | Include sign for both positive and negative numbers. |
+| `{: }`      | Leaves a leading space for positive numbers, but shows a minus sign for negative numbers. |
+| `{:-}`      | Left-align the output (the default is right-align). |
+| `{:#}`      | "Alternate" form for numbers, adding prefixes for hex (`0x`), octal (`0o`), or binary (`0b`). Example: `println!("{:#x}", 42)` prints `0x2a`. |
+
+### 3. Floating Point Specific Specifiers
+
+| Specifier   | Meaning                                                   |
+|-------------|-----------------------------------------------------------|
+| `{:e}`      | Lowercase scientific notation (e.g., `1.2e-3`). |
+| `{:E}`      | Uppercase scientific notation (e.g., `1.2E-3`). |
+| `{:.*}`     | Precision specifier. Example: `println!("{:.2}", 3.14159)` prints `3.14`. |
+| `{:width}`  | Minimum field width. |
+| `{:+}`      | Print the sign for both positive and negative numbers. |
+
+### 4. String Format Specifiers
+
+| Specifier   | Meaning                                                   |
+|-------------|-----------------------------------------------------------|
+| `{:}`       | Default string display. |
+| `{:.*}`     | Precision for string length. Example: `println!("{:.5}", "Hello, world!")` prints `Hello`. |
+| `{:width}`  | Minimum field width. Pads with spaces if the string is shorter than the width. |
+| `{:>width}` | Right-align text. |
+| `{:<width}` | Left-align text. |
+| `{:^width}` | Center-align text. |
+
+### 5. Pointer Format Specifiers
+
+| Specifier | Meaning                                                   |
+|-----------|-----------------------------------------------------------|
+| `{:p}`    | Prints the memory address of a reference or raw pointer. Example: `println!("{:p}", &my_var)` prints the memory address of `my_var`. |
+
+### 6. Escape Sequences
+
+| Specifier | Meaning                                                   |
+|-----------|-----------------------------------------------------------|
+| `\\`      | Prints a backslash (`\`). |
+| `{{`      | Prints a literal `{`. |
+| `}}`      | Prints a literal `}`. |
+
+## 7. Advanced Usage
+
+- **Argument Reordering**: You can specify the argument index explicitly: `println!("{0} {1} {0}", "a", "b")` prints `a b a`.
+- **Named Arguments**: You can name arguments: `println!("{value}", value = 42)` prints `42`.
+- **Width/Precision as Arguments**: You can pass width and precision dynamically: `println!("{:.1$}", 1.2345, 2)` prints `1.23` (precision = 2).
+
+### 8. Custom Formatting
+
+- Implement the `std::fmt::Display` or `std::fmt::Debug` traits for your custom types to control how they are formatted with `{}` and `{:?}`.
+
+---
+
+For more information, refer to the official [Rust documentation on formatting](https://doc.rust-lang.org/std/fmt/).
+
 
 ## Stack vs Heap
 
