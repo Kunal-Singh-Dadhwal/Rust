@@ -239,6 +239,7 @@ fn calculate_len(item: String)-> usize{
 }
 ```
 
+If there is one mutable refrence being taken then the compiler doesnt allow no more refrences either it be mutable or immutable
 
 when we pass the refrence & we can only read no write to the variable as long as we pass mut variable
 
@@ -273,7 +274,12 @@ Char is always 4 bytes in size can represent emoji, ASCII and eveything in utf-8
 
 It is a dynamic array with different size and elements can be pushed and poped on it so Its a heap based data type so the rules of ownership apply on it 
 
+## Iterator 
+
+Look in the [docs](https://doc.rust-lang.org/rust-by-example/trait/iter.html)
 
 ## Tic Tac Toe 
 
 The [main](/src/main.rs) is a tic tac toe game
+
+
